@@ -448,3 +448,46 @@ h1, h2, h3, h4, h5, h6,
 .swiper-slide-active .tst-cover {
   transform: scale(1.04);
 }
+
+.il-hero-sound {
+  position: absolute;
+  right: 24px;
+  bottom: 28px;
+  z-index: 5;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 18px;
+  border: 1px solid rgba(245, 243, 240, 0.35);
+  border-radius: 2px;
+  background: rgba(10, 9, 8, 0.55);
+  color: $wl1;
+  font-family: $sf;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+  transition: $tr-sm;
+
+  i {
+    font-size: 14px;
+    color: $ac;
+  }
+
+  &:hover {
+    background: rgba(10, 9, 8, 0.8);
+    border-color: $ac;
+  }
+
+  @media (max-width: 768px) {
+    right: 16px;
+    bottom: 20px;
+    padding: 10px 14px;
+
+    span {
+      display: none;
+    }
+  }
+}

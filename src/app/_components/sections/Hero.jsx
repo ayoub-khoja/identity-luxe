@@ -2,14 +2,49 @@
 
 import Data from "@data/sections/hero.json";
 import Link from "next/link";
-import { useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { ScrollAnimation } from "@common/scrollAnims";
 
 const Hero = ( { bgType } ) => {
+    const videoRef = useRef(null);
+    const [muted, setMuted] = useState(true);
+
     useEffect(() => {
         ScrollAnimation();
     }, []);
+
+    useEffect(() => {
+        if (bgType !== "video" || !videoRef.current) return;
+
+        const video = videoRef.current;
+        video.muted = muted;
+
+        // Browsers block unmuted autoplay — start muted, then unlock sound on click.
+        const play = async () => {
+            try {
+                await video.play();
+            } catch {
+                // Ignore autoplay rejection; user can still unmute.
+            }
+        };
+        play();
+    }, [bgType, muted]);
+
+    const toggleSound = async () => {
+        const video = videoRef.current;
+        if (!video) return;
+
+        const nextMuted = !muted;
+        video.muted = nextMuted;
+        setMuted(nextMuted);
+
+        try {
+            await video.play();
+        } catch {
+            // no-op
+        }
+    };
 
     return (
         <>
@@ -17,9 +52,11 @@ const Hero = ( { bgType } ) => {
             <div className="tst-banner">
                 <div className="tst-cover-frame">
                     {bgType == 'video' ? (
+                    <>
                     <video
+                      ref={videoRef}
                       className="tst-cover tst-parallax"
-                      muted
+                      muted={muted}
                       playsInline
                       autoPlay
                       loop
@@ -27,6 +64,16 @@ const Hero = ( { bgType } ) => {
                     >
                         <source src={Data.video.url} type="video/mp4" />
                     </video>
+                    <button
+                      type="button"
+                      className="il-hero-sound"
+                      onClick={toggleSound}
+                      aria-label={muted ? "Activer le son" : "Couper le son"}
+                    >
+                      <i className={muted ? "fas fa-volume-mute" : "fas fa-volume-up"}></i>
+                      <span>{muted ? "Activer le son" : "Couper le son"}</span>
+                    </button>
+                    </>
                     ) : (
                     <img src={Data.image.url} alt={Data.image.alt} className="tst-cover tst-parallax" />
                     )}
