@@ -2,28 +2,28 @@
     "total": 3,
     "items": [
         {
-            "title": "Chevrefrit au miel",
-            "description": "tomatoes, nori, feta cheese, mushrooms, rice noodles, corn, shrimp.",
-            "image": "/img/menu/1.jpg",
+            "title": "Blazer Signature",
+            "description": "Taille M — laine mélangée, coupe structurée.",
+            "image": "/img/fashion/product-1.jpg",
             "quantity": 1,
-            "price": "14.00",
-            "currency": "$"
+            "price": "349.00",
+            "currency": "€"
         },
         {
-            "title": "Carpaccio de daurade",
-            "description": "tomatoes, nori, feta cheese, mushrooms, rice noodles, corn, shrimp.",
-            "image": "/img/menu/2.jpg",
+            "title": "Chemise Soie",
+            "description": "Taille S — soie fluide, blanc ivoire.",
+            "image": "/img/fashion/product-3.jpg",
             "quantity": 1,
-            "price": "7.99",
-            "currency": "$"
+            "price": "185.00",
+            "currency": "€"
         },
         {
-            "title": "Stracciatella",
-            "description": "tomatoes, nori, feta cheese, mushrooms, rice noodles, corn, shrimp.",
-            "image": "/img/menu/3.jpg",
+            "title": "Sac Édition",
+            "description": "Cuir grainé — noir, fermoir doré.",
+            "image": "/img/fashion/product-4.jpg",
             "quantity": 1,
-            "price": "11.00",
-            "currency": "$"
+            "price": "275.00",
+            "currency": "€"
         }
     ]
 }

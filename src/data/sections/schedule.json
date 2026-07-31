@@ -1,39 +1,39 @@
 {
     "image": {
-       "url": "/img/menu/4.jpg",
-       "alt": "cover"
+       "url": "/img/fashion/product-5.jpg",
+       "alt": "Boutique Identity Luxe"
     },
-    "subtitle": "About us",
-    "title": "Working hours",
-    "description": "Rolorem, beatae dolorum, praesentium itaque et quam quaerat.",
+    "subtitle": "Boutique",
+    "title": "Horaires d'ouverture",
+    "description": "Passez en boutique pour un conseil stylistique personnalisé.",
     "button1": {
-        "link": "/menu",
-        "label": "Reservation"
+        "link": "/contact",
+        "label": "Prendre rendez-vous"
     },
     "button2": {
-        "link": "/contact",
-        "label": "Contact us"
+        "link": "/shop",
+        "label": "Acheter en ligne"
     },
     "items": [
         {
-            "label": "Sunday to Tuesday",
+            "label": "Mardi à Vendredi",
             "from": {
-                "hours": "09",
+                "hours": "10",
                 "minutes": "00"
             },
             "to": {
-                "hours": "22",
+                "hours": "19",
                 "minutes": "00"
             }
         },
         {
-            "label": "Friday to Saturday",
+            "label": "Samedi",
             "from": {
                 "hours": "11",
                 "minutes": "00"
             },
             "to": {
-                "hours": "19",
+                "hours": "18",
                 "minutes": "00"
             }
         }

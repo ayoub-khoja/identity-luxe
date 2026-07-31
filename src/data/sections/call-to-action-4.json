@@ -1,17 +1,17 @@
 {
-    "subtitle": "Reservation",
-    "title": "This evening <br>will be great!",
-    "description": "Quaerat debitis, vel, sapiente dicta sequi <br>labore porro pariatur harum expedita.",
+    "subtitle": "Collection",
+    "title": "Votre look<br>commence ici",
+    "description": "Essayage privé, conseil styliste<br>et pièces exclusives en boutique.",
     "image": {
-        "url": "/img/reserved.png",
-        "alt": "burger"
+        "url": "/img/fashion/cta.jpg",
+        "alt": "Identity Luxe boutique"
     },
     "button1": {
-        "link": "/menu",
-        "label": "Reservation"
+        "link": "/shop",
+        "label": "Boutique"
     },
     "button2": {
         "link": "/contact",
-        "label": "Get in touch"
+        "label": "Nous écrire"
     }
 }

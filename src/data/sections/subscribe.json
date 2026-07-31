@@ -1,9 +1,9 @@
 {
     "image": {
-        "url": "/img/menu/1.jpg",
-        "alt": "cover"
+        "url": "/img/fashion/product-3.jpg",
+        "alt": "Newsletter Identity Luxe"
     },
-    "title": "Subscribe our newsletter",
+    "title": "Recevoir les nouveautés",
     "subtitle": "Newsletter",
-    "description": "Rolorem, beatae dolorum, praesentium itaque et quam quaerat."
+    "description": "Accès anticipé aux drops, invitations privées et conseils style."
 }

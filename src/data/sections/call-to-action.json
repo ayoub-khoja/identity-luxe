@@ -1,19 +1,19 @@
 {
-    "subtitle": "Mobile application",
-    "title": "Download <br>our application",
-    "description": "Quaerat debitis, vel, sapiente dicta sequi <br>labore porro pariatur harum expedita.",
+    "subtitle": "Nouvelle collection",
+    "title": "Printemps–Été<br>en boutique",
+    "description": "Silhouettes fluides, tons pierre et or pâle.<br>Disponible en ligne et en magasin.",
     "image": {
-        "url": "/img/phone.png",
-        "alt": "phone"
+        "url": "/img/fashion/cta.jpg",
+        "alt": "Collection Identity Luxe"
     },
     "button1": {
-        "icon": "fab fa-app-store",
-        "link": "https://www.apple.com/ua/app-store/",
-        "label": "Appstore"
+        "icon": "fas fa-shopping-bag",
+        "link": "/shop",
+        "label": "Boutique"
     },
     "button2": {
-        "icon": "fab fa-google-play",
-        "link": "https://play.google.com/store",
-        "label": "Playmarket"
+        "icon": "fas fa-arrow-right",
+        "link": "/products",
+        "label": "Tous les looks"
     }
 }

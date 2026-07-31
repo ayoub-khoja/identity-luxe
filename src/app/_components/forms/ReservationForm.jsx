@@ -74,7 +74,7 @@ const ReservationForm = () => {
                 <div className="col-6 col-md-4">
                     <input
                         type="text" 
-                        placeholder="First Name"
+                        placeholder="Prénom"
                         name="first_name" 
                         required="required" 
                         onChange={handleChange}
@@ -85,7 +85,7 @@ const ReservationForm = () => {
                 <div className="col-6 col-md-4">
                     <input
                         type="text" 
-                        placeholder="Last Name"
+                        placeholder="Nom"
                         name="last_name" 
                         required="required" 
                         onChange={handleChange}
@@ -106,13 +106,11 @@ const ReservationForm = () => {
                 </div>
                 <div className="col-6 col-md-4">
                     <select name="person" className="wide">
-                        <option>Person</option>
-                        <option value="1">1 Preson</option>
-                        <option value="2">2 People</option>
-                        <option value="3">3 People</option>
-                        <option value="4">4 People</option>
-                        <option value="3">5 People</option>
-                        <option value="3">6 or more</option>
+                        <option>Service</option>
+                        <option value="style">Conseil style</option>
+                        <option value="fitting">Essayage privé</option>
+                        <option value="alteration">Retouches</option>
+                        <option value="vip">Shopping VIP</option>
                     </select>
                 </div>
                 <div className="col-6 col-md-4">
@@ -127,25 +125,21 @@ const ReservationForm = () => {
                 </div>
                 <div className="col-6 col-md-4">
                     <select name="time" className="wide">
-                        <option>Time</option>
-                        <option value="10:00am">10:00 am</option>
-                        <option value="11:00am">11:00 am</option>
-                        <option value="12:00pm">12:00 pm</option>
-                        <option value="1:00pm">1:00 pm</option>
-                        <option value="2:00pm">2:00 pm</option>
-                        <option value="3:00pm">3:00 pm</option>
-                        <option value="4:00pm">4:00 pm</option>
-                        <option value="5:00pm">5:00 pm</option>
-                        <option value="6:00pm">6:00 pm</option>
-                        <option value="7:00pm">7:00 pm</option>
-                        <option value="8:00pm">8:00 pm</option>
-                        <option value="9:00pm">9:00 pm</option>
-                        <option value="10:00pm">10:00 pm</option>
+                        <option>Heure</option>
+                        <option value="10:00am">10:00</option>
+                        <option value="11:00am">11:00</option>
+                        <option value="12:00pm">12:00</option>
+                        <option value="1:00pm">13:00</option>
+                        <option value="2:00pm">14:00</option>
+                        <option value="3:00pm">15:00</option>
+                        <option value="4:00pm">16:00</option>
+                        <option value="5:00pm">17:00</option>
+                        <option value="6:00pm">18:00</option>
                     </select>
                 </div>
                 <div className="col-12">
                     <textarea 
-                        placeholder="Message"
+                        placeholder="Votre message"
                         name="message" 
                         required="required"
                         onChange={handleChange}
@@ -155,7 +149,7 @@ const ReservationForm = () => {
                     />
                 </div>
             </div>
-            <button className="tst-btn" type="submit" name="button">Reserve a table</button>
+            <button className="tst-btn" type="submit" name="button">Confirmer le rendez-vous</button>
 
             <div id="reservationFormStatus" className="tst-form-status"></div>
         </form>

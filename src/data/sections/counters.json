@@ -1,24 +1,24 @@
 {
     "items": [
         {
-            "value": "200",
+            "value": "120",
             "value_after": "+",
-            "label": "Visitors daily"
+            "label": "Pièces exclusives"
         },
         {
-            "value": "400",
-            "value_after": "+",
-            "label": "Deliveries monthly"
+            "value": "15",
+            "value_after": "k",
+            "label": "Clients fidèles"
         },
         {
-            "value": "100",
+            "value": "98",
             "value_after": "%",
-            "label": "Positive feedback"
+            "label": "Avis positifs"
         },
         {
-            "value": "40",
-            "value_after": "+",
-            "label": "Awards and honors"
+            "value": "8",
+            "value_after": "",
+            "label": "Collections par an"
         }
     ]
 }

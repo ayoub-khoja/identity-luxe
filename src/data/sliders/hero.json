@@ -1,54 +1,54 @@
 {
     "items": [
         {
-            "title": "Welcome Back <br>to Tastycs",
-            "subtitle": "Hello, new friend!",
+            "title": "Identity Luxe",
+            "subtitle": "Maison de mode",
             "image": {
                 "url": "/img/banners/banner-1.jpg",
-                "alt": "cover"
+                "alt": "Collection Identity Luxe"
             },
-            "text": "Quaerat debitis, vel, sapiente dicta sequi <br>labore porro pariatur harum expedita.",
+            "text": "Des pièces intemporelles pour une élégance qui vous définit.",
             "button1": {
-                "link": "/reservation",
-                "label": "Reservation"
+                "link": "/shop",
+                "label": "Découvrir"
             },
             "button2": {
-                "link": "/menu",
-                "label": "Open Menu"
+                "link": "/about",
+                "label": "La maison"
             }
         },
         {
-            "title": "Reserve Your <br>Table Today",
-            "subtitle": "Hello, new friend!",
+            "title": "Identity Luxe",
+            "subtitle": "Nouvelle saison",
             "image": {
                 "url": "/img/banners/banner-2.jpg",
-                "alt": "cover"
+                "alt": "Nouvelle collection"
             },
-            "text": "Quaerat debitis, vel, sapiente dicta sequi <br>labore porro pariatur harum expedita.",
+            "text": "Coupes précises, matières nobles, allure affirmée.",
             "button1": {
-                "link": "/reservation-2",
-                "label": "Table Order"
+                "link": "/products",
+                "label": "La collection"
             },
             "button2": {
-                "link": "/shop",
-                "label": "Online shop"
+                "link": "/contact",
+                "label": "Rendez-vous"
             }
         },
         {
-            "title": "Visit to Our<br>Online Shop",
-            "subtitle": "Hello, new friend!",
+            "title": "Identity Luxe",
+            "subtitle": "Essentiels",
             "image": {
                 "url": "/img/banners/banner-3.jpg",
-                "alt": "cover"
+                "alt": "Boutique Identity Luxe"
             },
-            "text": "Quaerat debitis, vel, sapiente dicta sequi <br>labore porro pariatur harum expedita.",
+            "text": "Le vestiaire moderne, pensé pour durer.",
             "button1": {
-                "link": "/contact",
-                "label": "Find Us"
+                "link": "/shop",
+                "label": "Boutique"
             },
             "button2": {
-                "link": "/menu-2",
-                "label": "Open Menu"
+                "link": "/about",
+                "label": "Notre histoire"
             }
         }
     ]

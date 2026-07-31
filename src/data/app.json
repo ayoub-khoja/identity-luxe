@@ -1,7 +1,7 @@
 {
     "settings": {
-        "siteName": "latablemarine",
-        "siteDescription": "Cafe & Restaurant React Next.JS Template",
+        "siteName": "Identity Luxe",
+        "siteDescription": "Boutique de mode haut de gamme — Identity Luxe",
         "bgImage": "/img/bg.jpg",
         "formspreeURL": "https://formspree.io/f/YOUR_FORM_ID",
         "mailchimp": {
@@ -19,49 +19,57 @@
             "actionUrl": "//www.opentable.com/restaurant-search.aspx",
             "restaurantID": "YOUR_OPENTABLE_RESTAURANT_ID",
             "geoID": "15",
-            "lang": "en-US"
+            "lang": "fr-FR"
         },
         "perPage": 6
     },
     "header": {
         "logo": {
-            "image": "/img/logo-sm.png",
-            "alt": "Logo"
+            "image": "/img/logo-sm.svg",
+            "alt": "Identity Luxe"
         },
         "menu": [
             {
-                "label": "Home",
+                "label": "Accueil",
                 "link": "/",
+                "children": 0
+            },
+            {
+                "label": "Collection",
+                "link": "/shop",
                 "children": [
                     {
-                        "label": "Home slider",
-                        "link": "/"
+                        "label": "Boutique",
+                        "link": "/shop"
                     },
                     {
-                        "label": "Home image",
-                        "link": "/home-2"
+                        "label": "Tous les produits",
+                        "link": "/products"
                     },
                     {
-                        "label": "Home video",
-                        "link": "/home-3"
+                        "label": "Fiche produit",
+                        "link": "/product"
                     },
                     {
-                        "label": "Onepage",
-                        "link": "/onepage",
-                        "blank": 1
+                        "label": "Panier",
+                        "link": "/cart"
+                    },
+                    {
+                        "label": "Paiement",
+                        "link": "/checkout"
                     }
                 ]
             },
             {
-                "label": "About",
+                "label": "À propos",
                 "link": "/about",
                 "children": [
                     {
-                        "label": "About Us",
+                        "label": "Notre maison",
                         "link": "/about"
                     },
                     {
-                        "label": "About employee",
+                        "label": "L'équipe",
                         "link": "/about-chef"
                     },
                     {
@@ -69,80 +77,18 @@
                         "link": "/services"
                     },
                     {
-                        "label": "History",
+                        "label": "Histoire",
                         "link": "/history"
                     }
                 ]
             },
             {
-                "label": "Menu",
-                "link": "/menu",
-                "children": [
-                    {
-                        "label": "Menu type 1",
-                        "link": "/menu"
-                    },
-                    {
-                        "label": "Menu type 2",
-                        "link": "/menu-2"
-                    }
-                ]
-            },
-            {
-                "label": "Blog",
+                "label": "Journal",
                 "link": "/blog",
                 "children": [
                     {
-                        "label": "Blog list",
+                        "label": "Articles",
                         "link": "/blog"
-                    },
-                    {
-                        "label": "Blog category",
-                        "link": "/blog/category/recipes"
-                    },
-                    {
-                        "label": "Publication",
-                        "link": "/blog/incredible-vegan-mac-and-cheese"
-                    }
-                ]
-            },
-            {
-                "label": "Reserve",
-                "link": "/reservation",
-                "children": [
-                    {
-                        "label": "Reservation (Form)",
-                        "link": "/reservation"
-                    },
-                    {
-                        "label": "Reservation (OpenTable API)",
-                        "link": "/reservation-2"
-                    }
-                ]
-            },
-            {
-                "label": "Shop",
-                "link": "/shop",
-                "children": [
-                    {
-                        "label": "Shop Page",
-                        "link": "/shop"
-                    },
-                    {
-                        "label": "Products List",
-                        "link": "/products"
-                    },
-                    {
-                        "label": "Product Page",
-                        "link": "/product"
-                    },
-                    {
-                        "label": "Cart Page",
-                        "link": "/cart"
-                    },
-                    {
-                        "label": "Checkout Page",
-                        "link": "/checkout"
                     }
                 ]
             },
@@ -154,19 +100,19 @@
         ],
         "onepage": [
             {
-                "label": "Home",
+                "label": "Accueil",
                 "link": "#home"
             },
             {
-                "label": "About",
+                "label": "Maison",
                 "link": "#about"
             },
             {
-                "label": "Menu",
+                "label": "Collection",
                 "link": "#menu"
             },
             {
-                "label": "Blog",
+                "label": "Journal",
                 "link": "#blog"
             },
             {
@@ -178,83 +124,83 @@
     "footer": {
         "logo": {
             "url": "/img/logo-sm-white.svg",
-            "alt": "latablemarine"
+            "alt": "Identity Luxe"
         },
         "about": {
-            "title": "About us",
-            "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita repudiandae neque illum aspernatur fugiat maiores id magni, modi, quaerat vitae. Consectetur adipisicing elit.",
+            "title": "La maison",
+            "text": "Identity Luxe signe des pièces intemporelles, coupées avec exigence. Une mode raffinée pour affirmer votre style, saison après saison.",
             "button": {
-                "link": "/menu",
-                "label": "Our Menu"
+                "link": "/shop",
+                "label": "Voir la collection"
             }
         },
         "contact": {
-            "title": "Contact info",
+            "title": "Nous trouver",
             "items": [
                 {
-                    "label": "Call",
-                    "value": "+76 (094) 754 43 7I"
+                    "label": "Appeler",
+                    "value": "+33 1 42 00 00 00"
                 },
                 {
-                    "label": "Write",
-                    "value": "your.email.inbox@here.com"
+                    "label": "Écrire",
+                    "value": "hello@identityluxe.com"
                 },
                 {
-                    "label": "Find us",
-                    "value": "Canada, Toronto, North Avenue 31B"
+                    "label": "Boutique",
+                    "value": "12 rue Saint-Honoré, Paris"
                 }
             ],
             "button": {
                 "link": "/contact",
-                "label": "Contact Us"
+                "label": "Nous contacter"
             }
         },
         "gallery": {
-            "title": "Gallery",
+            "title": "Looks",
             "items": [
                 {
-                    "image": "/img/menu/1.jpg",
-                    "alt": "Gallery Image"
+                    "image": "/img/fashion/product-1.jpg",
+                    "alt": "Look Identity Luxe"
                 },
                 {
-                    "image": "/img/menu/2.jpg",
-                    "alt": "Gallery Image"
+                    "image": "/img/fashion/product-2.jpg",
+                    "alt": "Look Identity Luxe"
                 },
                 {
-                    "image": "/img/menu/3.jpg",
-                    "alt": "Gallery Image"
+                    "image": "/img/fashion/product-3.jpg",
+                    "alt": "Look Identity Luxe"
                 },
                 {
-                    "image": "/img/menu/4.jpg",
-                    "alt": "Gallery Image"
+                    "image": "/img/fashion/product-4.jpg",
+                    "alt": "Look Identity Luxe"
                 },
                 {
-                    "image": "/img/menu/5.jpg",
-                    "alt": "Gallery Image"
+                    "image": "/img/fashion/product-5.jpg",
+                    "alt": "Look Identity Luxe"
                 }
             ],
             "button": {
-                "link": "/history",
-                "label": "See more"
+                "link": "/shop",
+                "label": "Voir plus"
             }
         },
-        "copy": "© 2024 Tastycs. All rights reserved."
+        "copy": "© 2026 Identity Luxe. Tous droits réservés."
     },
     "social": [
-        {
-            "link": "https://facebook.com",
-            "title": "Facebook",
-            "icon": "fab fa-facebook-f"
-        },
         {
             "link": "https://instagram.com",
             "title": "Instagram",
             "icon": "fab fa-instagram"
         },
         {
-            "link": "https://twitter.com",
-            "title": "Twitter",
-            "icon": "fab fa-twitter"
+            "link": "https://facebook.com",
+            "title": "Facebook",
+            "icon": "fab fa-facebook-f"
+        },
+        {
+            "link": "https://pinterest.com",
+            "title": "Pinterest",
+            "icon": "fab fa-pinterest-p"
         },
         {
             "link": "https://youtube.com",

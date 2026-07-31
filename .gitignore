@@ -5,3 +5,8 @@ out/
 .DS_Store
 npm-debug.log*
 yarn-error.log*
+
+# local duplicates / temp
+public/video/Ai video 2.MP4
+image00015.png
+

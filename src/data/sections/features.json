@@ -1,22 +1,22 @@
 {
-    "subtitle": "Features",
-    "title": "Why people choose us?",
-    "description": "Porro eveniet, autem ipsam vitae consequatur!",
+    "subtitle": "Pourquoi nous",
+    "title": "L'exigence Identity Luxe",
+    "description": "Ce qui rend chaque pièce unique.",
     "items": [
         {
             "icon": "/img/icons/1.svg",
-            "title": "Menu for every taste",
-            "text": "Dolor sit amet, consectetur adipisicing elit et molestias possimus"
+            "title": "Matières nobles",
+            "text": "Laines, soies et cotons sélectionnés pour le toucher, la tenue et la durée."
         },
         {
             "icon": "/img/icons/2.svg",
-            "title": "Always fresh ingredients",
-            "text": "Assumenda possimus eaque illo iste, autem. Porro eveniet autem"
+            "title": "Coupes précises",
+            "text": "Des silhouettes travaillées pour flotter juste, season after season."
         },
         {
             "icon": "/img/icons/3.svg",
-            "title": "Experienced chefs",
-            "text": "Rolorem, beatae dolorum, praesentium itaque et quam quaerat"
+            "title": "Style intemporel",
+            "text": "Des essentiels raffinés, loin des tendances jetables."
         }
     ]
 }

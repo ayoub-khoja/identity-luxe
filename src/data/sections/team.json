@@ -1,12 +1,12 @@
 {
-    "title": "They are ready to treat you",
-    "subtitle": "Team",
-    "description": "Porro eveniet, autem ipsam corrupti consectetur cum. <br>Repudiandae dignissimos fugiat sit nam.",
+    "title": "L'équipe créative",
+    "subtitle": "Maison",
+    "description": "Stylistes et artisans qui donnent forme<br>à chaque collection Identity Luxe.",
     "items": [
         {
             "image": "/img/faces/c1.jpg",
             "name": "Paul Trueman",
-            "role": "Master Chef",
+            "role": "Directeur artistique",
             "social": [
                 {
                     "icon": "fab fa-facebook-f",
@@ -33,7 +33,7 @@
         {
             "image": "/img/faces/c2.jpg",
             "name": "Oscar Oldman",
-            "role": "Master Chef",
+            "role": "Responsable atelier",
             "social": [
                 {
                     "icon": "fab fa-facebook-f",
@@ -60,7 +60,7 @@
         {
             "image": "/img/faces/c3.jpg",
             "name": "Emma Newman",
-            "role": "Master Chef",
+            "role": "Styliste",
             "social": [
                 {
                     "icon": "fab fa-facebook-f",

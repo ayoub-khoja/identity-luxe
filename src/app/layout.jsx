@@ -1,19 +1,19 @@
-import { Josefin_Sans, Playfair_Display } from 'next/font/google'
+import { Cormorant_Garamond, Outfit } from 'next/font/google'
 
-const josefin_sans = Josefin_Sans({
-  weight: ['100', '200', '300', '400', '500', '600', '700'],
-  style: ['normal', 'italic'],
+const outfit = Outfit({
+  weight: ['200', '300', '400', '500', '600', '700'],
+  style: ['normal'],
   subsets: ['latin'],
-  variable: '--font-josefin_sans',
+  variable: '--font-outfit',
   display: 'swap',
   adjustFontFallback: false,
 })
 
-const playfair_display = Playfair_Display({
-  weight: ['400', '500', '600', '700', '800', '900', '700'],
+const cormorant = Cormorant_Garamond({
+  weight: ['300', '400', '500', '600', '700'],
   style: ['normal', 'italic'],
   subsets: ['latin'],
-  variable: '--font-playfair_display',
+  variable: '--font-cormorant',
   display: 'swap',
   adjustFontFallback: false,
 })
@@ -43,7 +43,7 @@ const Layouts = ({
   children
 }) => {
   return (
-    <html lang="en" className={`${josefin_sans.variable} ${playfair_display.variable}`}>
+    <html lang="fr" className={`${outfit.variable} ${cormorant.variable}`}>
       <body style={{"backgroundImage": "url("+AppData.settings.bgImage+")"}}>
         <div className="tst-main-overlay"></div>
         

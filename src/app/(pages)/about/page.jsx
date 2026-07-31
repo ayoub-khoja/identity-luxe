@@ -32,15 +32,15 @@ async function About() {
   const posts = await getAllPosts();
 
   const Content = {
-    "subtitle": "About us",
-    "title": "We invite you to<br> visit our restaurant",
-    "description": "Assumenda possimus eaque illo iste, autem. Porro eveniet, autem ipsam vitae amet repellat repudiandae tenetur, quod corrupti consectetur cum? Repudiandae dignissimos fugiat sit nam. Tempore aspernatur quae repudiandae dolorem, beatae dolorum, praesentium itaque et quam quaerat. Cumque, consequatur!"
+    "subtitle": "La maison",
+    "title": "Identity Luxe,<br> l'élégance affirmée",
+    "description": "Depuis nos ateliers, nous imaginons un vestiaire contemporain où chaque pièce révèle une présence. Coupes nettes, matières nobles, silhouette affirmée — une mode qui dure, loin du bruit des tendances."
   }
 
   return (
     <>
       <div id="tst-dynamic-banner" className="tst-dynamic-banner">
-        <PageBanner pageTitle={"Story of our restaurant"} description={"Quaerat debitis, vel, sapiente dicta sequi <br>labore porro pariatur harum expedita."} breadTitle={"About us"} />
+        <PageBanner pageTitle={"Notre histoire"} description={"Une maison de mode née de l'exigence<br>et du goût pour l'essentiel."} breadTitle={"À propos"} />
       </div>
       <div id="tst-dynamic-content" className="tst-dynamic-content">
         <div className="tst-content-frame">

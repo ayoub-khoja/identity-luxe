@@ -8,6 +8,7 @@ import AppData from "@data/app.json";
 import ScrollHint from "@layouts/scroll-hint/Index";
 import Divider from "@layouts/divider/Index";
 
+import HeroSection from "@components/sections/Hero";
 import AboutSection from "@components/sections/About";
 import FeaturesSection from "@components/sections/Features";
 import ScheduleSection from "@components/sections/Schedule";
@@ -16,12 +17,11 @@ import CallToActionSection from "@components/sections/CallToAction";
 import LatestPostsSection from "@components/sections/LatestPosts";
 import SubscribeSection from "@components/sections/Subscribe";
 
-const HeroSlider = dynamic( () => import("@components/sliders/Hero"), { ssr: false } );
 const TestimonialSlider = dynamic( () => import("@components/sliders/Testimonial"), { ssr: false } );
 
 export const metadata = {
   title: {
-		default: "Acceuil",
+		default: "Accueil",
 	},
   description: AppData.settings.siteDescription,
 }
@@ -32,7 +32,7 @@ async function Home() {
   return (
     <>
       <div id="tst-dynamic-banner" className="tst-dynamic-banner">
-        <HeroSlider />
+        <HeroSection bgType={"video"} />
       </div>
       <div id="tst-dynamic-content" className="tst-dynamic-content">
         <div className="tst-content-frame">

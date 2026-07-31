@@ -1,67 +1,67 @@
 {
-    "subtitle": "Testimonials",
-    "title": "What Our visitors say",
-    "description": "Porro eveniet, autem ipsam corrupti consectetur cum. <br>Repudiandae dignissimos fugiat sit nam.",
+    "subtitle": "Témoignages",
+    "title": "Ce que disent nos clientes",
+    "description": "Des pièces qui s'imposent dans le vestiaire,<br>saison après saison.",
     "button": {
         "link": "/about",
-        "label": "More about us"
+        "label": "Découvrir la maison"
     },
     "items": [
         {
-            "title": "It was very delicious!",
+            "title": "Une allure immédiate",
             "name": "Emma Newman",
             "image": "/img/faces/1.jpg",
-            "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, eligendi dolorem? Voluptates rem magnam nesciunt ullam hic error sed, minus, accusantium inventore ex reprehenderit ipsum aperiam libero ut, laudantium delectus deleniti debitis quas dolore quos. Accusamus ea saepe, veniam. Nemo.",
-            "date": "02.02.21"
+            "text": "Le blazer Signature est devenu mon essentiel. Coupe impeccable, matière noble — on sent tout de suite la différence Identity Luxe.",
+            "date": "12.03.26"
         },
         {
-            "title": "I'm delighted!",
-            "name": "Viktoria Freeman",
+            "title": "Élégance discrète",
+            "name": "Victoria Freeman",
             "image": "/img/faces/2.jpg",
-            "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, eligendi dolorem? Voluptates rem magnam nesciunt ullam hic error sed, minus, accusantium inventore ex reprehenderit ipsum aperiam libero ut, laudantium delectus deleniti debitis quas dolore quos. Accusamus ea saepe, veniam. Nemo.",
-            "date": "02.02.21"
+            "text": "Enfin une marque qui mise sur l'intemporel. Le manteau cachemire est d'une douceur rare, et le service en boutique est attentionné.",
+            "date": "28.02.26"
         },
         {
-            "title": "I will visit again.",
+            "title": "Qualité rare",
             "name": "Paul Trueman",
             "image": "/img/faces/3.jpg",
-            "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, eligendi dolorem? Voluptates rem magnam nesciunt ullam hic error sed, minus, accusantium inventore ex reprehenderit ipsum aperiam libero ut, laudantium delectus deleniti debitis quas dolore quos. Accusamus ea saepe, veniam. Nemo.",
-            "date": "02.02.21"
+            "text": "Costume noir parfaitement équilibré. Les finitions sont au niveau d'une maison bien plus établie — je recommande sans hésiter.",
+            "date": "15.01.26"
         },
         {
-            "title": "The best restaurant!",
+            "title": "Mon adresse mode",
             "name": "Oscar Oldman",
             "image": "/img/faces/4.jpg",
-            "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, eligendi dolorem? Voluptates rem magnam nesciunt ullam hic error sed, minus, accusantium inventore ex reprehenderit ipsum aperiam libero ut, laudantium delectus deleniti debitis quas dolore quos. Accusamus ea saepe, veniam. Nemo.",
-            "date": "02.02.21"
+            "text": "Identity Luxe a transformé mon vestiaire. Moins de pièces, mieux choisies — c'est exactement ce que je recherchais.",
+            "date": "03.01.26"
         },
         {
-            "title": "It was very delicious!",
+            "title": "Une allure immédiate",
             "name": "Emma Newman",
             "image": "/img/faces/1.jpg",
-            "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, eligendi dolorem? Voluptates rem magnam nesciunt ullam hic error sed, minus, accusantium inventore ex reprehenderit ipsum aperiam libero ut, laudantium delectus deleniti debitis quas dolore quos. Accusamus ea saepe, veniam. Nemo.",
-            "date": "02.02.21"
+            "text": "Le blazer Signature est devenu mon essentiel. Coupe impeccable, matière noble — on sent tout de suite la différence Identity Luxe.",
+            "date": "12.03.26"
         },
         {
-            "title": "I'm delighted!",
-            "name": "Viktoria Freeman",
+            "title": "Élégance discrète",
+            "name": "Victoria Freeman",
             "image": "/img/faces/2.jpg",
-            "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, eligendi dolorem? Voluptates rem magnam nesciunt ullam hic error sed, minus, accusantium inventore ex reprehenderit ipsum aperiam libero ut, laudantium delectus deleniti debitis quas dolore quos. Accusamus ea saepe, veniam. Nemo.",
-            "date": "02.02.21"
+            "text": "Enfin une marque qui mise sur l'intemporel. Le manteau cachemire est d'une douceur rare, et le service en boutique est attentionné.",
+            "date": "28.02.26"
         },
         {
-            "title": "I will visit again.",
+            "title": "Qualité rare",
             "name": "Paul Trueman",
             "image": "/img/faces/3.jpg",
-            "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, eligendi dolorem? Voluptates rem magnam nesciunt ullam hic error sed, minus, accusantium inventore ex reprehenderit ipsum aperiam libero ut, laudantium delectus deleniti debitis quas dolore quos. Accusamus ea saepe, veniam. Nemo.",
-            "date": "02.02.21"
+            "text": "Costume noir parfaitement équilibré. Les finitions sont au niveau d'une maison bien plus établie — je recommande sans hésiter.",
+            "date": "15.01.26"
         },
         {
-            "title": "The best restaurant!",
+            "title": "Mon adresse mode",
             "name": "Oscar Oldman",
             "image": "/img/faces/4.jpg",
-            "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, eligendi dolorem? Voluptates rem magnam nesciunt ullam hic error sed, minus, accusantium inventore ex reprehenderit ipsum aperiam libero ut, laudantium delectus deleniti debitis quas dolore quos. Accusamus ea saepe, veniam. Nemo.",
-            "date": "02.02.21"
+            "text": "Identity Luxe a transformé mon vestiaire. Moins de pièces, mieux choisies — c'est exactement ce que je recherchais.",
+            "date": "03.01.26"
         }
     ]
 }

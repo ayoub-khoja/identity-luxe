@@ -34,9 +34,9 @@ const HeroSlider = () => {
               <div className="tst-banner-content-frame">
                 <div className="container">
                   <div className="tst-main-title-frame">
-                    <div className="tst-main-title" data-swiper-parallax-y="200" data-swiper-parallax-scale=".8" data-swiper-parallax-duration="800">
+                    <div className="tst-main-title il-hero-brand" data-swiper-parallax-y="200" data-swiper-parallax-scale=".8" data-swiper-parallax-duration="800">
                       <div className="tst-suptitle tst-suptitle-mobile-center tst-text-shadow tst-white-2 tst-mb-15" dangerouslySetInnerHTML={{__html : item.subtitle}}  />
-                      <h1 className="tst-white-2 tst-text-shadow tst-mb-30" dangerouslySetInnerHTML={{__html : item.title}}  />
+                      <h1 className="tst-white-2 tst-text-shadow tst-mb-20 il-brand-title" dangerouslySetInnerHTML={{__html : item.title}}  />
                       <div className="tst-text tst-text-shadow tst-text-lg tst-white-2 tst-mb-30" dangerouslySetInnerHTML={{__html : item.text}}  />
                       <Link href={item.button1.link} className="tst-btn tst-btn-lg tst-btn-shadow tst-res-btn tst-mr-30">{item.button1.label}</Link>
                       <Link href={item.button2.link} className="tst-label tst-white-2">{item.button2.label}</Link>
