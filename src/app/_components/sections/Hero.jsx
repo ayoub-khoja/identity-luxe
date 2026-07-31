@@ -8,6 +8,7 @@ import { ScrollAnimation } from "@common/scrollAnims";
 
 const Hero = ( { bgType } ) => {
     const videoRef = useRef(null);
+    const unlockedRef = useRef(false);
     const [muted, setMuted] = useState(true);
 
     useEffect(() => {
@@ -18,26 +19,51 @@ const Hero = ( { bgType } ) => {
         if (bgType !== "video" || !videoRef.current) return;
 
         const video = videoRef.current;
-        video.muted = muted;
+        video.muted = true;
 
-        // Browsers block unmuted autoplay — start muted, then unlock sound on click.
-        const play = async () => {
+        const playMuted = async () => {
             try {
                 await video.play();
             } catch {
-                // Ignore autoplay rejection; user can still unmute.
+                // Ignore autoplay rejection.
             }
         };
-        play();
-    }, [bgType, muted]);
+        playMuted();
+    }, [bgType]);
 
-    const toggleSound = async () => {
+    const unlockSound = async () => {
+        if (unlockedRef.current || bgType !== "video") return;
+
         const video = videoRef.current;
         if (!video) return;
 
-        const nextMuted = !muted;
-        video.muted = nextMuted;
-        setMuted(nextMuted);
+        unlockedRef.current = true;
+        video.muted = false;
+        setMuted(false);
+
+        try {
+            await video.play();
+        } catch {
+            // If play fails, keep controls available via the button.
+            unlockedRef.current = false;
+            video.muted = true;
+            setMuted(true);
+        }
+    };
+
+    const toggleSound = async (e) => {
+        e.stopPropagation();
+        const video = videoRef.current;
+        if (!video) return;
+
+        if (muted) {
+            unlockedRef.current = true;
+            video.muted = false;
+            setMuted(false);
+        } else {
+            video.muted = true;
+            setMuted(true);
+        }
 
         try {
             await video.play();
@@ -49,7 +75,7 @@ const Hero = ( { bgType } ) => {
     return (
         <>
             {/* banner */}
-            <div className="tst-banner">
+            <div className="tst-banner" onClick={unlockSound} onTouchStart={unlockSound}>
                 <div className="tst-cover-frame">
                     {bgType == 'video' ? (
                     <>
