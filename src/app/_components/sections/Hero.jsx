@@ -5,11 +5,14 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
 import { ScrollAnimation } from "@common/scrollAnims";
+import { useLanguage } from "@common/LanguageContext";
 
 const Hero = ( { bgType } ) => {
     const videoRef = useRef(null);
     const unlockedRef = useRef(false);
     const [muted, setMuted] = useState(true);
+    const { t } = useLanguage();
+    const hero = t.hero;
 
     useEffect(() => {
         ScrollAnimation();
@@ -44,7 +47,6 @@ const Hero = ( { bgType } ) => {
         try {
             await video.play();
         } catch {
-            // If play fails, keep controls available via the button.
             unlockedRef.current = false;
             video.muted = true;
             setMuted(true);
@@ -72,9 +74,10 @@ const Hero = ( { bgType } ) => {
         }
     };
 
+    const soundLabel = muted ? t.soundOn : t.soundOff;
+
     return (
         <>
-            {/* banner */}
             <div className="tst-banner" onClick={unlockSound} onTouchStart={unlockSound}>
                 <div className="tst-cover-frame">
                     {bgType == 'video' ? (
@@ -94,10 +97,10 @@ const Hero = ( { bgType } ) => {
                       type="button"
                       className="il-hero-sound"
                       onClick={toggleSound}
-                      aria-label={muted ? "Activer le son" : "Couper le son"}
+                      aria-label={soundLabel}
                     >
                       <i className={muted ? "fas fa-volume-mute" : "fas fa-volume-up"}></i>
-                      <span>{muted ? "Activer le son" : "Couper le son"}</span>
+                      <span>{soundLabel}</span>
                     </button>
                     </>
                     ) : (
@@ -109,17 +112,16 @@ const Hero = ( { bgType } ) => {
                     <div className="container">
                         <div className="tst-main-title-frame">
                         <div className="tst-main-title il-hero-brand">
-                            <div className="tst-suptitle tst-suptitle-mobile-center tst-text-shadow tst-white-2 tst-mb-15">{Data.subtitle}</div>
-                            <h1 className="tst-white-2 tst-text-shadow tst-mb-20 il-brand-title" dangerouslySetInnerHTML={{__html : Data.title}} />
-                            <div className="tst-text tst-text-shadow tst-text-lg tst-white-2 tst-mb-30" dangerouslySetInnerHTML={{__html : Data.description}} />
-                            <Link href={Data.button1.link} className="tst-btn tst-btn-lg tst-btn-shadow tst-res-btn tst-mr-30">{Data.button1.label}</Link>
-                            <Link href={Data.button2.link} className="tst-label tst-white-2">{Data.button2.label}</Link>
+                            <div className="tst-suptitle tst-suptitle-mobile-center tst-text-shadow tst-white-2 tst-mb-15">{hero.subtitle}</div>
+                            <h1 className="tst-white-2 tst-text-shadow tst-mb-20 il-brand-title" dangerouslySetInnerHTML={{__html : hero.title}} />
+                            <div className="tst-text tst-text-shadow tst-text-lg tst-white-2 tst-mb-30" dangerouslySetInnerHTML={{__html : hero.description}} />
+                            <Link href={Data.button1.link} className="tst-btn tst-btn-lg tst-btn-shadow tst-res-btn tst-mr-30">{hero.button1}</Link>
+                            <Link href={Data.button2.link} className="tst-label tst-white-2">{hero.button2}</Link>
                         </div>
                         </div>
                     </div>
                 </div>
             </div>
-            {/* banner end */}
         </>
     );
 }

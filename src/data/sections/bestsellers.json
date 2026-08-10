@@ -1,0 +1,58 @@
+{
+  "items": [
+    {
+      "id": "qtr-08",
+      "slug": "/product",
+      "image": "/img/fashion/product-1.jpg",
+      "name": "set QTR 08",
+      "brand": "Identity Luxe",
+      "price": "370",
+      "currency": "QAR"
+    },
+    {
+      "id": "qtr-01",
+      "slug": "/product",
+      "image": "/img/fashion/product-2.jpg",
+      "name": "set QTR 01",
+      "brand": "Identity Luxe",
+      "price": "370",
+      "currency": "QAR"
+    },
+    {
+      "id": "qtr-04",
+      "slug": "/product",
+      "image": "/img/fashion/product-3.jpg",
+      "name": "set QTR 04",
+      "brand": "Identity Luxe",
+      "price": "370",
+      "currency": "QAR"
+    },
+    {
+      "id": "qtr-10",
+      "slug": "/product",
+      "image": "/img/fashion/product-4.jpg",
+      "name": "set QTR 10",
+      "brand": "Identity Luxe",
+      "price": "370",
+      "currency": "QAR"
+    },
+    {
+      "id": "qtr-07",
+      "slug": "/product",
+      "image": "/img/fashion/product-5.jpg",
+      "name": "set QTR 07",
+      "brand": "Identity Luxe",
+      "price": "390",
+      "currency": "QAR"
+    },
+    {
+      "id": "qtr-12",
+      "slug": "/product",
+      "image": "/img/fashion/product-6.jpg",
+      "name": "set QTR 12",
+      "brand": "Identity Luxe",
+      "price": "350",
+      "currency": "QAR"
+    }
+  ]
+}

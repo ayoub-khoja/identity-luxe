@@ -16,6 +16,9 @@ import CountersSection from "@components/sections/Counters";
 import CallToActionSection from "@components/sections/CallToAction";
 import LatestPostsSection from "@components/sections/LatestPosts";
 import SubscribeSection from "@components/sections/Subscribe";
+import InstagramSection from "@components/sections/Instagram";
+import FaqSection from "@components/sections/Faq";
+import BestsellersSection from "@components/sections/Bestsellers";
 
 const TestimonialSlider = dynamic( () => import("@components/sliders/Testimonial"), { ssr: false } );
 
@@ -41,6 +44,8 @@ async function Home() {
               <ScrollHint />
               <AboutSection />
               <Divider />
+              <BestsellersSection />
+              <Divider />
               <FeaturesSection />
               <Divider />
               <ScheduleSection />
@@ -53,6 +58,10 @@ async function Home() {
         <div className="tst-content-frame">
           <div className="tst-content-box">
             <div className="container tst-p-60-60">
+              <InstagramSection />
+              <Divider />
+              <FaqSection />
+              <Divider />
               <TestimonialSlider />
               <Divider onlyBottom={0} />
               <Suspense fallback={<div>Loading...</div>}>

@@ -5,19 +5,21 @@ import { useEffect, useState } from "react";
 import { usePathname } from 'next/navigation';
 
 import { OnePageMenu } from '@common/onepageMenu';
+import { getNavLabel, getOnepageLabel } from "@common/i18n";
+import { useLanguage } from "@common/LanguageContext";
 
 import AppData from "@data/app.json";
 import CartData from "@data/cart.json";
 
 import MiniCart from "@layouts/cart/MiniCart";
-import ReservationForm from "@components/forms/ReservationForm";
+import LanguageSelector from "@components/LanguageSelector";
 
 const DefaultHeader = () => {
   const [mobileMenu, setMobileMenu] = useState(false);
   const [openSubMenu, setOpenSubMenu] = useState(false);
   const [miniCart, setMiniCart] = useState(false);
-  const [reservationPopup, setReservationPopup] = useState(false);
   const asPath = usePathname();
+  const { locale } = useLanguage();
 
   const isPathActive = (path) => {
     return (asPath.endsWith(path) == 1 && path !== '/') || asPath === path;
@@ -36,7 +38,6 @@ const DefaultHeader = () => {
     // close mobile menu
     setMobileMenu(false);
     setMiniCart(false);
-    setReservationPopup(false);
     setOpenSubMenu(false);
   }, [asPath]);
 
@@ -62,7 +63,9 @@ const DefaultHeader = () => {
                     {isPathActive("onepage") ? (
                     <ul>
                         {AppData.header.onepage.map((item, index) => (
-                        <li key={`header-menu-onepage-item-${index}`} className={index == 0 ? "current-menu-item": ""}><a data-no-swup href={item.link}>{item.label}</a></li>
+                        <li key={`header-menu-onepage-item-${index}`} className={index == 0 ? "current-menu-item": ""}>
+                          <a data-no-swup href={item.link}>{getOnepageLabel(locale, item.link, item.label)}</a>
+                        </li>
                         ))}
                     </ul>
                     ) : (
@@ -70,7 +73,7 @@ const DefaultHeader = () => {
                         {AppData.header.menu.map((item, index) => (
                         <li className={`${item.children !== 0 ? "menu-item-has-children" : ""} ${isPathActive(item.link) ? "current-menu-item" : ""}`} key={`header-menu-item-${index}`}>
                             <Link href={item.link} onClick={(item.children.length > 0)  ? (e) => handleSubMenuClick(index, e) : null}>
-                                {item.label}
+                                {getNavLabel(locale, item.link, item.label)}
                             </Link>
                             {item.children.length > 0 && (
                             <ul className={openSubMenu === index ? 'tst-active' : ''}>
@@ -78,11 +81,11 @@ const DefaultHeader = () => {
                                 <li key={`header-submenu-item-${subIndex}`} className={isPathActive(subitem.link) ? "tst-active" : ""}>
                                     {subitem.link == '/onepage' ? (
                                     <a href={subitem.link} target="_blank">
-                                        {subitem.label}
+                                        {getNavLabel(locale, subitem.link, subitem.label)}
                                     </a>
                                     ) : (
                                     <Link href={subitem.link}>
-                                        {subitem.label}
+                                        {getNavLabel(locale, subitem.link, subitem.label)}
                                     </Link>
                                     )}
                                 </li>
@@ -97,8 +100,7 @@ const DefaultHeader = () => {
                 {/* menu end */}
                 {/* top bar right */}
                 <div className="tst-menu-right">
-                    {/* appointment button */}
-                    <a href="#." className={`tst-btn tst-res-btn ${reservationPopup ? "tst-active" : "" }`} onClick={(e) => { setReservationPopup(!reservationPopup); e.preventDefault(); }} data-no-swup>Rendez-vous</a>
+                    <LanguageSelector />
                     <div className="tst-minicart">
                     {/* minicart button */}
                     <a href="#." className={`tst-cart ${miniCart ? "tst-active" : ""}`} onClick={(e) => { setMiniCart(!miniCart); e.preventDefault(); }}>
@@ -131,25 +133,6 @@ const DefaultHeader = () => {
             {/* top bar end */}
         </div>
         {/* top bar frame */}
-
-        {/* popup */}
-        <div className={`tst-popup-bg ${reservationPopup ? "tst-active" : "" }`}>
-            <div className="tst-popup-frame">
-                <div className="tst-popup-body">
-                    <div className="tst-close-popup" onClick={() => setReservationPopup(!reservationPopup)}><i className="fas fa-times"></i></div>
-
-                    {/* title */}
-                    <div className="text-center">
-                        <div className="tst-suptitle tst-suptitle-center"></div>
-                        <h4 className="tst-mb-60">Rendez-vous styliste</h4>
-                    </div>
-                    {/* title end */}
-                    
-                    <ReservationForm />
-                </div>
-            </div>
-        </div>
-        {/* popup end */}
     </>
   );
 };

@@ -30,6 +30,7 @@ register();
 import '@styles/scss/style.scss';
 
 import AppData from "@data/app.json";
+import Providers from "@components/Providers";
 
 export const metadata = {
   title: {
@@ -43,13 +44,13 @@ const Layouts = ({
   children
 }) => {
   return (
-    <html lang="fr" className={`${outfit.variable} ${cormorant.variable}`}>
+    <html lang="ar" dir="rtl" className={`${outfit.variable} ${cormorant.variable}`}>
       <body style={{"backgroundImage": "url("+AppData.settings.bgImage+")"}}>
         <div className="tst-main-overlay"></div>
         
         {/* app wrapper */}
         <div id="tst-app" className="tst-app">
-          {children}
+          <Providers>{children}</Providers>
         </div>
         {/* app wrapper end */}
       </body>

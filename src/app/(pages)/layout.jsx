@@ -1,5 +1,6 @@
 import Header from "@layouts/headers/Index";
 import Footer from "@layouts/footers/Index";
+import WhatsAppButton from "@components/WhatsAppButton";
 
 const PagesLayouts = ({
   children
@@ -13,6 +14,7 @@ const PagesLayouts = ({
       {/* dynamic content end */}
       
       <Footer layout={"default"} />
+      <WhatsAppButton />
     </>
   );
 };
