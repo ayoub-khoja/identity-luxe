@@ -1,5 +1,10 @@
 const API_VERSION = "2025-10";
 
+/** Read env at runtime — avoids Next.js build-time inlining of missing Sensitive vars. */
+function readEnv(name) {
+  return process.env[name] ?? "";
+}
+
 function normalizeDomain(value) {
   if (!value) return "";
 
@@ -10,9 +15,9 @@ function normalizeDomain(value) {
 }
 
 export function getShopifyConfig() {
-  const domain = normalizeDomain(process.env.SHOPIFY_STORE_DOMAIN);
-  const publicToken = (process.env.SHOPIFY_STOREFRONT_ACCESS_TOKEN || "").trim();
-  const privateToken = (process.env.SHOPIFY_STOREFRONT_PRIVATE_TOKEN || "").trim();
+  const domain = normalizeDomain(readEnv("SHOPIFY_STORE_DOMAIN"));
+  const publicToken = readEnv("SHOPIFY_STOREFRONT_ACCESS_TOKEN").trim();
+  const privateToken = readEnv("SHOPIFY_STOREFRONT_PRIVATE_TOKEN").trim();
 
   if (!domain || !publicToken) {
     return null;
