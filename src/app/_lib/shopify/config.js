@@ -1,22 +1,18 @@
-function readEnv(name) {
-  const value = process.env[name];
-  return typeof value === "string" ? value.trim() : "";
-}
-
 const API_VERSION = "2025-10";
 
 function normalizeDomain(value) {
   if (!value) return "";
 
-  return value
+  return String(value)
+    .trim()
     .replace(/^https?:\/\//i, "")
     .replace(/\/+$/, "");
 }
 
 export function getShopifyConfig() {
-  const domain = normalizeDomain(readEnv("SHOPIFY_STORE_DOMAIN"));
-  const publicToken = readEnv("SHOPIFY_STOREFRONT_ACCESS_TOKEN");
-  const privateToken = readEnv("SHOPIFY_STOREFRONT_PRIVATE_TOKEN");
+  const domain = normalizeDomain(process.env.SHOPIFY_STORE_DOMAIN);
+  const publicToken = (process.env.SHOPIFY_STOREFRONT_ACCESS_TOKEN || "").trim();
+  const privateToken = (process.env.SHOPIFY_STOREFRONT_PRIVATE_TOKEN || "").trim();
 
   if (!domain || !publicToken) {
     return null;

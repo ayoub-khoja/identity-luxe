@@ -4,6 +4,7 @@ import { getShopifyConfig } from "@library/shopify/config";
 import { getCollections, getBestSellingProducts } from "@library/shopify";
 
 export const dynamic = "force-dynamic";
+export const runtime = "nodejs";
 
 export async function GET() {
   const config = getShopifyConfig();
