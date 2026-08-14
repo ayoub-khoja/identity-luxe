@@ -1,12 +1,13 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { usePathname } from 'next/navigation';
 
 import { OnePageMenu } from '@common/onepageMenu';
 import { getNavLabel, getOnepageLabel } from "@common/i18n";
 import { useLanguage } from "@common/LanguageContext";
+import { buildHeaderMenu, isCollectionPath } from "@library/shopify/menu";
 
 import AppData from "@data/app.json";
 import CartData from "@data/cart.json";
@@ -14,15 +15,25 @@ import CartData from "@data/cart.json";
 import MiniCart from "@layouts/cart/MiniCart";
 import LanguageSelector from "@components/LanguageSelector";
 
-const DefaultHeader = () => {
+const hasChildren = (item) => Array.isArray(item?.children) && item.children.length > 0;
+
+const DefaultHeader = ({ collections = [] }) => {
   const [mobileMenu, setMobileMenu] = useState(false);
   const [openSubMenu, setOpenSubMenu] = useState(false);
   const [miniCart, setMiniCart] = useState(false);
   const asPath = usePathname();
   const { locale } = useLanguage();
+  const menu = useMemo(
+    () => buildHeaderMenu(AppData.header.menu, collections),
+    [collections]
+  );
 
   const isPathActive = (path) => {
-    return (asPath.endsWith(path) == 1 && path !== '/') || asPath === path;
+    if (path === "/shop") {
+      return isCollectionPath(asPath);
+    }
+
+    return (asPath.endsWith(path) && path !== '/') || asPath === path;
   };
 
   const handleSubMenuClick = (index, e) => {
@@ -70,15 +81,15 @@ const DefaultHeader = () => {
                     </ul>
                     ) : (
                     <ul>
-                        {AppData.header.menu.map((item, index) => (
-                        <li className={`${item.children !== 0 ? "menu-item-has-children" : ""} ${isPathActive(item.link) ? "current-menu-item" : ""}`} key={`header-menu-item-${index}`}>
-                            <Link href={item.link} onClick={(item.children.length > 0)  ? (e) => handleSubMenuClick(index, e) : null}>
+                        {menu.map((item, index) => (
+                        <li className={`${hasChildren(item) ? "menu-item-has-children" : ""} ${isPathActive(item.link) ? "current-menu-item" : ""}`} key={`header-menu-item-${index}`}>
+                            <Link href={item.link} onClick={hasChildren(item) ? (e) => handleSubMenuClick(index, e) : null}>
                                 {getNavLabel(locale, item.link, item.label)}
                             </Link>
-                            {item.children.length > 0 && (
+                            {hasChildren(item) && (
                             <ul className={openSubMenu === index ? 'tst-active' : ''}>
                                 {item.children.map((subitem, subIndex) => (
-                                <li key={`header-submenu-item-${subIndex}`} className={isPathActive(subitem.link) ? "tst-active" : ""}>
+                                <li key={`header-submenu-item-${subitem.link}-${subIndex}`} className={isPathActive(subitem.link) ? "tst-active" : ""}>
                                     {subitem.link == '/onepage' ? (
                                     <a href={subitem.link} target="_blank">
                                         {getNavLabel(locale, subitem.link, subitem.label)}

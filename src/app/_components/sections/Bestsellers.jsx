@@ -4,12 +4,17 @@ import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import { SliderProps } from "@common/sliderProps";
-import Data from "@data/sections/bestsellers.json";
+import FallbackData from "@data/sections/bestsellers.json";
 import { useLanguage } from "@common/LanguageContext";
 
-const BestsellersSection = () => {
-  const { t } = useLanguage();
+const BestsellersSection = ({ items = [] }) => {
+  const { t, dir } = useLanguage();
   const copy = t.bestsellers;
+  const products = items.length ? items : FallbackData.items;
+
+  if (!products.length) {
+    return null;
+  }
 
   return (
     <section className="il-bestsellers" id="bestsellers" aria-labelledby="il-bestsellers-title">
@@ -36,11 +41,12 @@ const BestsellersSection = () => {
       </div>
 
       <Swiper
+        key={`bestsellers-${dir}`}
+        dir={dir}
         {...SliderProps.bestsellersSlider}
-        loop={Data.items.length > 4}
         className="il-bestsellers__slider"
       >
-        {Data.items.map((item) => (
+        {products.map((item) => (
           <SwiperSlide key={item.id}>
             <article className="il-product-card">
               <Link href={item.slug} className="il-product-card__media">

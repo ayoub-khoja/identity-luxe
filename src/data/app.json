@@ -39,24 +39,8 @@
                 "link": "/shop",
                 "children": [
                     {
-                        "label": "Boutique",
-                        "link": "/shop"
-                    },
-                    {
                         "label": "Tous les produits",
                         "link": "/products"
-                    },
-                    {
-                        "label": "Fiche produit",
-                        "link": "/product"
-                    },
-                    {
-                        "label": "Panier",
-                        "link": "/cart"
-                    },
-                    {
-                        "label": "Paiement",
-                        "link": "/checkout"
                     }
                 ]
             },

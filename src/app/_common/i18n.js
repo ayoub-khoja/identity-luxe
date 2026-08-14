@@ -50,6 +50,10 @@ export const translations = {
       "/services": "الخدمات",
       "/history": "تاريخنا",
     },
+    shop: {
+      breadcrumb: "المجموعة",
+      emptyCollection: "هذه المجموعة ستكون متاحة قريباً.",
+    },
     onepage: {
       "#home": "الرئيسية",
       "#about": "الدار",
@@ -230,6 +234,10 @@ export const translations = {
       "/about-chef": "Team",
       "/services": "Services",
       "/history": "History",
+    },
+    shop: {
+      breadcrumb: "Collection",
+      emptyCollection: "This collection will be available soon.",
     },
     onepage: {
       "#home": "Home",

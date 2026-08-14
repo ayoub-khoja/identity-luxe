@@ -2,6 +2,7 @@ import React, { Suspense } from "react";
 import dynamic from "next/dynamic";
 
 import { getSortedPostsData } from "@library/posts";
+import { getBestSellingProducts } from "@library/shopify";
 
 import AppData from "@data/app.json";
 
@@ -30,7 +31,10 @@ export const metadata = {
 }
 
 async function Home() {
-  const posts = await getAllPosts();
+  const [posts, bestsellers] = await Promise.all([
+    getAllPosts(),
+    getBestSellingProducts(),
+  ]);
 
   return (
     <>
@@ -44,7 +48,7 @@ async function Home() {
               <ScrollHint />
               <AboutSection />
               <Divider />
-              <BestsellersSection />
+              <BestsellersSection items={bestsellers} />
               <Divider />
               <FeaturesSection />
               <Divider />

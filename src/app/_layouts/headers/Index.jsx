@@ -1,6 +1,9 @@
+import { getCollections } from "@library/shopify";
 import HeaderLayoutDefault from "./LayoutDefault";
 
-const Header = ({ layout }) => {
+const Header = async ({ layout }) => {
+  const collections = await getCollections();
+
   switch (layout) {
     case 1:
       return;
@@ -10,7 +13,7 @@ const Header = ({ layout }) => {
 
     default:
       return (
-        <HeaderLayoutDefault />
+        <HeaderLayoutDefault collections={collections} />
       );
   }
 };

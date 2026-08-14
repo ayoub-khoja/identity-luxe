@@ -141,18 +141,22 @@ export const SliderProps = {
     },
   },
   bestsellersSlider: {
-    spaceBetween: 20,
+    slidesPerView: 1.2,
+    spaceBetween: 14,
     speed: 650,
+    rewind: true,
+    watchOverflow: true,
+    observer: true,
+    observeParents: true,
+    grabCursor: true,
     navigation: {
       prevEl: ".il-bestsellers-prev",
       nextEl: ".il-bestsellers-next",
     },
     breakpoints: {
-      0: { slidesPerView: 1.15, spaceBetween: 14 },
-      480: { slidesPerView: 2, spaceBetween: 16 },
+      576: { slidesPerView: 2, spaceBetween: 16 },
       768: { slidesPerView: 3, spaceBetween: 18 },
-      1100: { slidesPerView: 4, spaceBetween: 20 },
-      1400: { slidesPerView: 5, spaceBetween: 20 },
+      1200: { slidesPerView: 4, spaceBetween: 20 },
     },
   },
 };
