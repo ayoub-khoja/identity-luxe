@@ -2,7 +2,7 @@ import Header from "@layouts/headers/Index";
 import Footer from "@layouts/footers/Index";
 import WhatsAppButton from "@components/WhatsAppButton";
 
-export const revalidate = 300;
+export const dynamic = "force-dynamic";
 
 const PagesLayouts = ({
   children

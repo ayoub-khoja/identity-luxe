@@ -1,5 +1,5 @@
 import React, { Suspense } from "react";
-import dynamic from "next/dynamic";
+import nextDynamic from "next/dynamic";
 
 import { getSortedPostsData } from "@library/posts";
 import { getBestSellingProducts } from "@library/shopify";
@@ -21,9 +21,9 @@ import InstagramSection from "@components/sections/Instagram";
 import FaqSection from "@components/sections/Faq";
 import BestsellersSection from "@components/sections/Bestsellers";
 
-const TestimonialSlider = dynamic( () => import("@components/sliders/Testimonial"), { ssr: false } );
+const TestimonialSlider = nextDynamic( () => import("@components/sliders/Testimonial"), { ssr: false } );
 
-export const revalidate = 300;
+export const dynamic = "force-dynamic";
 
 export const metadata = {
   title: {

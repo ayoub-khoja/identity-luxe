@@ -11,7 +11,8 @@ import CollectionEmpty from "@components/products/CollectionEmpty";
 
 import { getCollectionByHandle, getCollections } from "@library/shopify";
 
-export const revalidate = 300;
+export const dynamic = "force-dynamic";
+export const dynamicParams = true;
 
 export async function generateStaticParams() {
   const collections = await getCollections();

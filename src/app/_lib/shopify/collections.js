@@ -1,3 +1,5 @@
+import { unstable_noStore as noStore } from "next/cache";
+
 import { shopifyFetch, logShopifyWarning } from "./client";
 import { COLLECTIONS_QUERY, COLLECTION_BY_HANDLE_QUERY } from "./queries";
 import { mapCollection, mapCollections, mapProducts } from "./mappers";
@@ -7,7 +9,10 @@ const MAX_COLLECTIONS = 50;
 const MAX_PRODUCTS = 24;
 
 export async function getCollections() {
+  noStore();
+
   if (!isShopifyConfigured()) {
+    console.warn("[shopify] Missing SHOPIFY_STORE_DOMAIN or SHOPIFY_STOREFRONT_ACCESS_TOKEN.");
     return [];
   }
 
@@ -26,6 +31,8 @@ export async function getCollections() {
 }
 
 export async function getCollectionByHandle(handle) {
+  noStore();
+
   if (!handle || !isShopifyConfigured()) {
     return null;
   }

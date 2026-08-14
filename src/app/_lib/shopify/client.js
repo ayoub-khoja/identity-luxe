@@ -1,7 +1,5 @@
 import { getShopifyConfig } from "./config";
 
-const DEFAULT_REVALIDATE = 60 * 5;
-
 export class ShopifyError extends Error {
   constructor(message, { status, errors } = {}) {
     super(message);
@@ -18,12 +16,7 @@ function buildHeaders(config) {
   };
 }
 
-export async function shopifyFetch({
-  query,
-  variables = {},
-  tags = ["shopify"],
-  revalidate = DEFAULT_REVALIDATE,
-} = {}) {
+export async function shopifyFetch({ query, variables = {} } = {}) {
   const config = getShopifyConfig();
 
   if (!config) {
@@ -38,10 +31,7 @@ export async function shopifyFetch({
     method: "POST",
     headers: buildHeaders(config),
     body: JSON.stringify({ query, variables }),
-    next: {
-      revalidate,
-      tags,
-    },
+    cache: "no-store",
   });
 
   const json = await response.json().catch(() => null);
