@@ -23,6 +23,8 @@ import BestsellersSection from "@components/sections/Bestsellers";
 
 const TestimonialSlider = dynamic( () => import("@components/sliders/Testimonial"), { ssr: false } );
 
+export const revalidate = 300;
+
 export const metadata = {
   title: {
 		default: "Accueil",
