@@ -1,3 +1,5 @@
+import { SHOPIFY_PUBLIC_FALLBACK } from "./public-env";
+
 const API_VERSION = "2025-10";
 
 /** Read env at runtime — avoids Next.js build-time inlining of missing Sensitive vars. */
@@ -15,8 +17,13 @@ function normalizeDomain(value) {
 }
 
 export function getShopifyConfig() {
-  const domain = normalizeDomain(readEnv("SHOPIFY_STORE_DOMAIN"));
-  const publicToken = readEnv("SHOPIFY_STOREFRONT_ACCESS_TOKEN").trim();
+  const domain = normalizeDomain(
+    readEnv("SHOPIFY_STORE_DOMAIN") || SHOPIFY_PUBLIC_FALLBACK.domain
+  );
+  const publicToken = (
+    readEnv("SHOPIFY_STOREFRONT_ACCESS_TOKEN") ||
+    SHOPIFY_PUBLIC_FALLBACK.storefrontAccessToken
+  ).trim();
   const privateToken = readEnv("SHOPIFY_STOREFRONT_PRIVATE_TOKEN").trim();
 
   if (!domain || !publicToken) {
