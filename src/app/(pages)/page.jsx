@@ -2,7 +2,7 @@ import React, { Suspense } from "react";
 import nextDynamic from "next/dynamic";
 
 import { getSortedPostsData } from "@library/posts";
-import { getBestSellingProducts } from "@library/shopify";
+import { getBestSellingProducts, getFeaturedCollections, getPackCatalog } from "@library/shopify";
 
 import AppData from "@data/app.json";
 
@@ -20,6 +20,8 @@ import SubscribeSection from "@components/sections/Subscribe";
 import InstagramSection from "@components/sections/Instagram";
 import FaqSection from "@components/sections/Faq";
 import BestsellersSection from "@components/sections/Bestsellers";
+import CollectionShowcase from "@components/sections/CollectionShowcase";
+import FamilyPackSection from "@components/sections/FamilyPack";
 
 const TestimonialSlider = nextDynamic( () => import("@components/sliders/Testimonial"), { ssr: false } );
 
@@ -33,9 +35,11 @@ export const metadata = {
 }
 
 async function Home() {
-  const [posts, bestsellers] = await Promise.all([
+  const [posts, bestsellers, collections, packCatalog] = await Promise.all([
     getAllPosts(),
-    getBestSellingProducts(),
+    getBestSellingProducts(12),
+    getFeaturedCollections(),
+    getPackCatalog(),
   ]);
 
   return (
@@ -50,7 +54,11 @@ async function Home() {
               <ScrollHint />
               <AboutSection />
               <Divider />
+              <FamilyPackSection catalog={packCatalog} />
+              <Divider />
               <BestsellersSection items={bestsellers} />
+              <Divider />
+              <CollectionShowcase collections={collections} />
               <Divider />
               <FeaturesSection />
               <Divider />

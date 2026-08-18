@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 
 import { getShopifyConfig } from "@library/shopify/config";
-import { getCollections, getBestSellingProducts } from "@library/shopify";
+import { getCollections, getBestSellingProducts, getAllProducts } from "@library/shopify";
 
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
@@ -29,19 +29,22 @@ export async function GET() {
     });
   }
 
-  const [collections, bestsellers] = await Promise.all([
+  const [collections, bestsellers, products] = await Promise.all([
     getCollections(),
     getBestSellingProducts(4),
+    getAllProducts(),
   ]);
 
   return NextResponse.json({
-    ok: collections.length > 0 || bestsellers.length > 0,
+    ok: collections.length > 0 || products.length > 0,
     configured: true,
     env: envStatus,
     vercelEnv: process.env.VERCEL_ENV ?? null,
     domain: config.domain,
     collections: collections.length,
+    products: products.length,
     bestsellers: bestsellers.length,
     collectionTitles: collections.map((item) => item.title),
+    productTitles: products.map((item) => item.title),
   });
 }

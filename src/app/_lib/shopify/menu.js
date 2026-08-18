@@ -1,13 +1,17 @@
+import { sortCollections, getCollectionDisplayTitle } from "./catalog";
+
 const COLLECTION_MENU_LINK = "/shop";
 
-export function buildHeaderMenu(staticMenu = [], collections = []) {
+export function buildHeaderMenu(staticMenu = [], collections = [], locale = "en") {
+  const ordered = sortCollections(collections);
+
   return staticMenu.map((item) => {
     if (item.link !== COLLECTION_MENU_LINK) {
       return item;
     }
 
-    const collectionItems = collections.map((collection) => ({
-      label: collection.title,
+    const collectionItems = ordered.map((collection) => ({
+      label: getCollectionDisplayTitle(collection, locale),
       link: `/collection/${collection.handle}`,
     }));
 
@@ -15,7 +19,7 @@ export function buildHeaderMenu(staticMenu = [], collections = []) {
       ...item,
       children: [
         {
-          label: "Tous les produits",
+          label: locale === "ar" ? "كل المنتجات" : "All products",
           link: "/products",
         },
         ...collectionItems,
@@ -28,6 +32,7 @@ export function isCollectionPath(pathname = "") {
   return (
     pathname === "/shop" ||
     pathname.startsWith("/products") ||
-    pathname.startsWith("/collection")
+    pathname.startsWith("/collection") ||
+    pathname.startsWith("/product")
   );
 }

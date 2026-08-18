@@ -6,10 +6,11 @@ import Divider from "@layouts/divider/Index";
 
 import PageBanner from "@components/PageBanner";
 import SubscribeSection from "@components/sections/Subscribe";
-import ProductsGrid from "@components/products/ProductsGrid";
+import ProductCatalogGrid from "@components/products/ProductCatalogGrid";
 import CollectionEmpty from "@components/products/CollectionEmpty";
 
 import { getCollectionByHandle, getCollections } from "@library/shopify";
+import { getCollectionDisplayTitle } from "@library/shopify/catalog";
 
 export const dynamic = "force-dynamic";
 export const dynamicParams = true;
@@ -41,12 +42,13 @@ const CollectionPage = async ({ params }) => {
   }
 
   const products = collection.products || [];
+  const title = getCollectionDisplayTitle(collection, "en");
 
   return (
     <>
       <div id="tst-dynamic-banner" className="tst-dynamic-banner">
         <PageBanner
-          pageTitle={collection.title}
+          pageTitle={title}
           description={collection.description}
           breadTitle={"Collection"}
         />
@@ -58,7 +60,7 @@ const CollectionPage = async ({ params }) => {
               <ScrollHint />
 
               {products.length > 0 ? (
-                <ProductsGrid items={products} />
+                <ProductCatalogGrid items={products} />
               ) : (
                 <CollectionEmpty />
               )}

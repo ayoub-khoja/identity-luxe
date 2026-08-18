@@ -24,8 +24,8 @@ const DefaultHeader = ({ collections = [] }) => {
   const asPath = usePathname();
   const { locale } = useLanguage();
   const menu = useMemo(
-    () => buildHeaderMenu(AppData.header.menu, collections),
-    [collections]
+    () => buildHeaderMenu(AppData.header.menu, collections, locale),
+    [collections, locale]
   );
 
   const isPathActive = (path) => {

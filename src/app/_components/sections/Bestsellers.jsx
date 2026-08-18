@@ -1,5 +1,7 @@
 "use client";
 
+import ProductCard from "@components/products/ProductCard";
+
 import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -23,6 +25,9 @@ const BestsellersSection = ({ items = [] }) => {
           {copy.title}
         </h3>
         <div className="il-bestsellers__nav" aria-label={copy.navLabel}>
+          <Link href="/products" className="il-catalog-slider__all">
+            {t.shop?.viewAll}
+          </Link>
           <button
             type="button"
             className="il-bestsellers__arrow il-bestsellers-prev"
@@ -48,21 +53,7 @@ const BestsellersSection = ({ items = [] }) => {
       >
         {products.map((item) => (
           <SwiperSlide key={item.id}>
-            <article className="il-product-card">
-              <Link href={item.slug} className="il-product-card__media">
-                <img src={item.image} alt={item.name} loading="lazy" />
-              </Link>
-              <div className="il-product-card__info">
-                <Link href={item.slug} className="il-product-card__name">
-                  {item.name}
-                </Link>
-                <div className="il-product-card__brand">{item.brand}</div>
-                <div className="il-product-card__price">
-                  <span className="il-product-card__currency">{item.currency}</span>
-                  <span>{item.price}</span>
-                </div>
-              </div>
-            </article>
+            <ProductCard item={item} />
           </SwiperSlide>
         ))}
       </Swiper>

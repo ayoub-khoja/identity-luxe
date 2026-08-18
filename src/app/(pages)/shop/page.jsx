@@ -1,17 +1,16 @@
 import React from "react";
-import dynamic from "next/dynamic";
 
 import AppData from "@data/app.json";
 import ScrollHint from "@layouts/scroll-hint/Index";
 import Divider from "@layouts/divider/Index";
 
-import Products from '@data/products';
-
 import PageBanner from "@components/PageBanner";
 import SubscribeSection from "@components/sections/Subscribe";
-import TeamSection from "@components/sections/Team";
+import ShopCatalog from "@components/products/ShopCatalog";
 
-const ProductsSlider = dynamic( () => import("@components/sliders/Products"), { ssr: false } );
+import { getShopCatalog } from "@library/shopify";
+
+export const dynamic = "force-dynamic";
 
 export const metadata = {
   title: {
@@ -20,56 +19,22 @@ export const metadata = {
   description: AppData.settings.siteDescription,
 }
 
-const Shop = () => {
+const Shop = async () => {
+  const collections = await getShopCatalog();
+
   return (
     <>
       <div id="tst-dynamic-banner" className="tst-dynamic-banner">
-          <PageBanner pageTitle={"Shop"} description={"Quaerat debitis, vel, sapiente dicta sequi <br>labore porro pariatur harum expedita."} breadTitle={"Online Store"} />
+          <PageBanner pageTitle={"Collections"} description={"Kids & babies, adults hoodies, adults sets and tote bags."} breadTitle={"Shop"} />
       </div>
       <div id="tst-dynamic-content" className="tst-dynamic-content">
           <div className="tst-content-frame">
               <div className="tst-content-box">
                   <div className="container tst-p-60-60">
                       <ScrollHint />
-
-                      <ProductsSlider 
-                        items={Products.collection['popular']} 
-                        heading={
-                          { 
-                            "subtitle": "Popular", 
-                            "title": "Most popular dishes", 
-                            "description": "Porro eveniet, autem ipsam corrupti consectetur cum. <br>Repudiandae dignissimos fugiat sit nam." 
-                          }
-                        }
-                        button={
-                          {
-                            "link": "/products",
-                            "label": "View all"
-                          }
-                        }
-                      />
-                      <Divider onlyBottom={0} />
-                      <ProductsSlider 
-                        items={Products.collection['bestseller']} 
-                        heading={
-                          { 
-                            "subtitle": "Bestsellers", 
-                            "title": "Our Bestsellers", 
-                            "description": "Porro eveniet, autem ipsam corrupti consectetur cum. <br>Repudiandae dignissimos fugiat sit nam." 
-                          }
-                        }
-                        button={
-                          {
-                            "link": "/products",
-                            "label": "View all"
-                          }
-                        }
-                      />
-                      <Divider onlyBottom={0} />
-                      <TeamSection />
+                      <ShopCatalog collections={collections} />
                       <Divider onlyBottom={0} />
                       <SubscribeSection />
-                      
                   </div>
               </div>
           </div>

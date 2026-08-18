@@ -45,6 +45,11 @@
                 ]
             },
             {
+                "label": "Pack Famille",
+                "link": "/pack",
+                "children": 0
+            },
+            {
                 "label": "À propos",
                 "link": "/about",
                 "children": [

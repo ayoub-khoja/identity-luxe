@@ -1,29 +1,51 @@
-import { unstable_noStore as noStore } from "next/cache";
-
 import { shopifyFetch, logShopifyWarning } from "./client";
-import { COLLECTIONS_QUERY, COLLECTION_BY_HANDLE_QUERY } from "./queries";
-import { mapCollection, mapCollections, mapProducts } from "./mappers";
+import {
+  COLLECTIONS_QUERY,
+  COLLECTION_BY_HANDLE_QUERY,
+  COLLECTION_PREVIEW_QUERY,
+} from "./queries";
+import { mapCollection, mapCollections, mapProductCards } from "./mappers";
 import { isShopifyConfigured } from "./config";
+import { FEATURED_COLLECTION_HANDLES, sortCollections } from "./catalog";
 
-const MAX_COLLECTIONS = 50;
-const MAX_PRODUCTS = 24;
+const PAGE_SIZE = 50;
+const MAX_PAGES = 8;
+const PREVIEW_SIZE = 8;
+
+async function paginate(query, rootKey, variables = {}, tags = ["shopify"]) {
+  const nodes = [];
+  let after = null;
+
+  for (let page = 0; page < MAX_PAGES; page += 1) {
+    const data = await shopifyFetch({
+      query,
+      variables: { ...variables, first: PAGE_SIZE, after },
+      tags,
+    });
+
+    const connection = data?.[rootKey];
+    const pageNodes = connection?.nodes || [];
+    nodes.push(...pageNodes);
+
+    if (!connection?.pageInfo?.hasNextPage) {
+      break;
+    }
+
+    after = connection.pageInfo.endCursor;
+  }
+
+  return nodes;
+}
 
 export async function getCollections() {
-  noStore();
-
   if (!isShopifyConfigured()) {
     console.warn("[shopify] Missing SHOPIFY_STORE_DOMAIN or SHOPIFY_STOREFRONT_ACCESS_TOKEN.");
     return [];
   }
 
   try {
-    const data = await shopifyFetch({
-      query: COLLECTIONS_QUERY,
-      variables: { first: MAX_COLLECTIONS },
-      tags: ["shopify", "collections"],
-    });
-
-    return mapCollections(data?.collections?.nodes);
+    const nodes = await paginate(COLLECTIONS_QUERY, "collections", {}, ["shopify", "collections"]);
+    return sortCollections(mapCollections(nodes));
   } catch (error) {
     logShopifyWarning(error, "Unable to load collections");
     return [];
@@ -31,16 +53,60 @@ export async function getCollections() {
 }
 
 export async function getCollectionByHandle(handle) {
-  noStore();
+  if (!handle || !isShopifyConfigured()) {
+    return null;
+  }
 
+  try {
+    const products = [];
+    let after = null;
+    let collectionNode = null;
+
+    for (let page = 0; page < MAX_PAGES; page += 1) {
+      const data = await shopifyFetch({
+        query: COLLECTION_BY_HANDLE_QUERY,
+        variables: { handle, first: PAGE_SIZE, after },
+        tags: ["shopify", "collections", `collection:${handle}`],
+      });
+
+      collectionNode = data?.collection;
+
+      if (!collectionNode) {
+        return null;
+      }
+
+      const connection = collectionNode.products;
+      products.push(...(connection?.nodes || []));
+
+      if (!connection?.pageInfo?.hasNextPage) {
+        break;
+      }
+
+      after = connection.pageInfo.endCursor;
+    }
+
+    const collection = mapCollection(collectionNode);
+
+    return {
+      ...collection,
+      products: mapProductCards(products),
+      productCount: products.length,
+    };
+  } catch (error) {
+    logShopifyWarning(error, `Unable to load collection "${handle}"`);
+    return null;
+  }
+}
+
+export async function getCollectionPreview(handle, first = PREVIEW_SIZE) {
   if (!handle || !isShopifyConfigured()) {
     return null;
   }
 
   try {
     const data = await shopifyFetch({
-      query: COLLECTION_BY_HANDLE_QUERY,
-      variables: { handle, first: MAX_PRODUCTS },
+      query: COLLECTION_PREVIEW_QUERY,
+      variables: { handle, first },
       tags: ["shopify", "collections", `collection:${handle}`],
     });
 
@@ -52,10 +118,25 @@ export async function getCollectionByHandle(handle) {
 
     return {
       ...collection,
-      products: mapProducts(data.collection.products?.nodes),
+      products: mapProductCards(data.collection.products?.nodes),
+      productCount: 0,
     };
   } catch (error) {
-    logShopifyWarning(error, `Unable to load collection "${handle}"`);
+    logShopifyWarning(error, `Unable to load collection preview "${handle}"`);
     return null;
   }
+}
+
+export async function getFeaturedCollections(handles = FEATURED_COLLECTION_HANDLES) {
+  const collections = await Promise.all(handles.map((handle) => getCollectionPreview(handle)));
+  return collections.filter(Boolean);
+}
+
+export async function getShopCatalog() {
+  const collections = await getCollections();
+  const previews = await Promise.all(
+    collections.map((collection) => getCollectionPreview(collection.handle, PREVIEW_SIZE))
+  );
+
+  return previews.filter(Boolean);
 }
